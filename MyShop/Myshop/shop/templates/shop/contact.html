@@ -1,0 +1,60 @@
+{% extends 'shop/basic.html' %}
+
+{% block style %}
+
+
+{% endblock style %}
+
+
+{% block title%} MyShop _ Tracker.. {% endblock title%}
+
+{% block body %}
+{% load static %}
+
+<div class="container">
+    <h4 class="my-4 text-center">
+        Contact Us
+    </h4>
+
+    <form action="/shop/contact/" method="post"> {% csrf_token %}
+        <div class="form-group">
+            <label for="name">Enter Your name :</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your Full Name">
+        </div>
+        <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com">
+        </div>
+        <div class="form-group">
+            <label for="address">Adress :</label>
+            <input type="text" class="form-control" id="address" name="address" placeholder="Enter Your Address here">
+        </div>
+
+        <div class="form-group">
+            <label for="mobile">Mobile Number :</label>
+            <input type="number" class="form-control" id="mobile" name="mobile" placeholder="Enter Your Number here..">
+        </div>
+
+
+        <div class="form-group">
+            <label for="query">Enter Your Query </label>
+            <textarea class="form-control" id="query" name="desc" rows="4"></textarea>
+        </div>
+
+        <button class="btn btn-primary" type="submit" > Submit</button>
+    </form>
+</div>
+{% block js %}
+<script>
+    {% if thank %}
+ alert('Thanks for Contacting with us. We will get back to you soon !');
+  
+    document.location = "/shop/contact";
+    {% endif %}
+
+</script>
+
+{% endblock js %}
+
+{% endblock body %}
+

@@ -1,0 +1,49 @@
+{% extends 'blog/basic.html'%}
+
+
+
+{% block style %}
+
+{% endblock style %}
+
+
+{% block title %}Myshop - Blog {% endblock title %}
+
+{% block body %}
+
+
+
+<div class="container my-4">
+  <div class="row mb-2">
+    {% for i in myposts%}
+
+    <div class="col-md-6">
+      <div class="card flex-md-row mb-4 box-shadow h-md-250">
+        <div class="card-body d-flex flex-column align-items-start">
+          <strong class="d-inline-block mb-2 text-primary">  {{i.head0}}</strong>
+          <h3 class="mb-0">
+{{i.title}}
+          </h3>
+          <div class="mb-1 text-muted">Nov 12</div>
+          <p class="card-text mb-auto">{{i.head1}}</p>
+          <a href="blogpost/{{i.post_id}}">Continue reading</a>
+        </div>
+        <img src="/media/{{i.thumbnail}}" class="card-img-right flex-auto d-none d-md-block"
+          alt="Thumbnail [200x250]" style="width: 200px; height: 250px;"
+          >
+      </div>
+    </div>
+
+    {% if forloop.counter|divisibleby:2 %}
+
+     </div>  <div class="row mb-2">
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+  {% endblock body %}
+
+
+  {% block js %}
+
+  {% endblock js %}
